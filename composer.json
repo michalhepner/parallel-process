@@ -3,6 +3,7 @@
   "description": "Allows to run Symfony processes in parallel",
   "type": "library",
   "require": {
+    "php": ">=5.3.9",
     "symfony/process": ">=2.8"
   },
   "authors": [

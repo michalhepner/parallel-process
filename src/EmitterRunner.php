@@ -36,7 +36,12 @@ class EmitterRunner implements ArrayAccess, IteratorAggregate
         }
     }
 
-    public function run(callable $onFinished): void
+    /**
+     * @param callable $onFinished
+     *
+     * @return void
+     */
+    public function run(callable $onFinished)
     {
         foreach ($this->processes as $key => $process) {
             $this->pending[] = $key;
@@ -66,26 +71,47 @@ class EmitterRunner implements ArrayAccess, IteratorAggregate
         }
     }
 
-    public function set(string $key, Process $process): self
+    /**
+     * @param string  $key
+     * @param Process $process
+     *
+     * @return $this
+     */
+    public function set($key, Process $process)
     {
         $this->processes[$key] = $process;
 
         return $this;
     }
 
-    public function remove(string $key): self
+    /**
+     * @param string $key
+     *
+     * @return $this
+     */
+    public function remove($key)
     {
         unset($this->processes[$key]);
 
         return $this;
     }
 
-    public function get(string $key): Process
+    /**
+     * @param string $key
+     *
+     * @return Process
+     */
+    public function get($key)
     {
         return $this->processes[$key];
     }
 
-    public function has(string $key): bool
+    /**
+     * @param string $key
+     *
+     * @return bool
+     */
+    public function has($key)
     {
         return array_key_exists($key, $this->processes);
     }
@@ -110,12 +136,20 @@ class EmitterRunner implements ArrayAccess, IteratorAggregate
         $this->remove($offset);
     }
 
-    public function getPoolSize(): int
+    /**
+     * @return int
+     */
+    public function getPoolSize()
     {
         return $this->poolSize;
     }
 
-    public function setPoolSize(int $poolSize): self
+    /**
+     * @param int $poolSize
+     *
+     * @return $this
+     */
+    public function setPoolSize($poolSize)
     {
         $this->poolSize = $poolSize;
 
