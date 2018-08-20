@@ -1,0 +1,19 @@
+{
+  "name": "michalhepner/parallel-process",
+  "description": "Allows to run Symfony processes in parallel",
+  "type": "library",
+  "require": {
+    "symfony/process": ">=2.8"
+  },
+  "authors": [
+    {
+      "name": "Michał Hepner",
+      "email": "michal.hepner@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Heo\\ParallelProcess\\": "src/"
+    }
+  }
+}
